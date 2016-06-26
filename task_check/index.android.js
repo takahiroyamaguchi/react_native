@@ -6,47 +6,79 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    ListView
 } from 'react-native';
+import NavigationBar from 'react-native-navbar';
+import SQLite from 'react-native-android-sqlite';
 
 class task_check extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <View style={{flex: 1}}>
+                <TopNavigationBar/>
+                <TaskListBox/>
+            </View>
+        );
+    }
 }
 
+const TopNavigationBar = React.createClass({
+    getInitialState: function() {
+        return {
+            title: {
+                title: "Hello"
+            },
+            leftButton: {
+                title: "Left",
+                handler: this.onClickLeftButton
+            },
+            rightButton: {
+                title: "Right",
+                handler: this.onClickRightButton
+            },
+        };
+    },
+    onClickLeftButton: function() {
+        alert("Left");
+    },
+    onClickRightButton: function() {
+        alert("Right");
+    },
+    render: function() {
+        return (
+            <NavigationBar
+                title={this.state.title}
+                leftButton={this.state.leftButton}
+                rightButton={this.state.rightButton}
+            />
+        );
+    }
+});
+
+const TaskListBox = React.createClass({
+    getInitialState: function() {
+        return {
+            list: []
+        };
+    },
+    componentDitMount: function() {
+    },
+    render: function() {
+        SQLite.init("task_check.sqlite").then((_) => {
+            console.log('database initialized.')
+        });
+            
+        return (
+            <Text>test</Text>
+        );
+    }
+});
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
 });
 
 AppRegistry.registerComponent('task_check', () => task_check);

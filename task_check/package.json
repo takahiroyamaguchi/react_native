@@ -6,7 +6,12 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "install": "^0.8.1",
     "react": "15.1.0",
-    "react-native": "0.28.0"
+    "react-native": "0.28.0",
+    "react-native-android-sqlite": "^0.1.6",
+    "react-native-navbar": "^1.5.0",
+    "react-native-sqlite": "0.0.12",
+    "react-native-sqlite-storage": "^3.0.0"
   }
 }
