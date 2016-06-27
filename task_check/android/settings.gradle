@@ -1,5 +1,5 @@
 rootProject.name = 'task_check'
 
 include ':app'
-include ':react-native-android-sqlite'
-project(':react-native-android-sqlite').projectDir = new File(settingsDir, '../node_modules/react-native-android-sqlite')
+include ':react-native-sqlite-storage'
+project(':react-native-sqlite-storage').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sqlite-storage/src/android')

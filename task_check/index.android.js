@@ -13,7 +13,7 @@ import {
     ListView
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
-import SQLite from 'react-native-android-sqlite';
+import SQLite from 'react-native-sqlite-storage';
 
 class task_check extends Component {
     render() {
@@ -65,12 +65,14 @@ const TaskListBox = React.createClass({
             list: []
         };
     },
-    componentDitMount: function() {
+    successcb: function() {
+        console.log("success");
+    },
+    errorcb: function(error) {
+        console.log("error::" + error);
     },
     render: function() {
-        SQLite.init("task_check.sqlite").then((_) => {
-            console.log('database initialized.')
-        });
+        SQLite.openDatabase({name: 'my.db', location: 'default'}, this.successcb, this.errorcb);
             
         return (
             <Text>test</Text>
