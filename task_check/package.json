@@ -10,8 +10,11 @@
     "react": "15.1.0",
     "react-native": "0.28.0",
     "react-native-android-sqlite": "^0.1.6",
+    "react-native-button": "^1.6.0",
     "react-native-navbar": "^1.5.0",
     "react-native-sqlite": "0.0.12",
-    "react-native-sqlite-storage": "^3.0.0"
+    "react-native-sqlite-storage": "^3.0.0",
+    "react-native-swipe-list-view": "^0.2.1",
+    "react-native-swipeout": "^2.0.12"
   }
 }

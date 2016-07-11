@@ -32,6 +32,8 @@ react-native start
 ***
 - [react-native-navbar](https://github.com/react-native-fellowship/react-native-navbar)
 - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
+- [react-native-swipe-list-view](https://github.com/jemise111/react-native-swipe-list-view)
+- [react-native-button](https://github.com/ide/react-native-button/)
 
 ***
 ### node of
