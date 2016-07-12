@@ -30,6 +30,14 @@ react-native start
 ***
 ### Need module
 ***
+```
+npm install react-native --save
+npm install react-native-navbar --save
+npm install react-native-sqlite-storage --save
+npm install react-native-swipe-list-view --save
+npm install react-native-button --save
+```
+***
 - [react-native-navbar](https://github.com/react-native-fellowship/react-native-navbar)
 - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
 - [react-native-swipe-list-view](https://github.com/jemise111/react-native-swipe-list-view)
