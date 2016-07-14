@@ -1,4 +1,6 @@
-const myStyles = {
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
@@ -77,6 +79,4 @@ const myStyles = {
     marginTop: 10,
     color: "#7fffd4"
   }
-};
-
-export default { myStyles };
+});

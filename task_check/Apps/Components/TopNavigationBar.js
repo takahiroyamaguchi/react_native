@@ -2,26 +2,18 @@
 
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View
 } from 'react-native';
 import NavigationBar from 'react-native-navbar';
-import StaticSQL from '../sql';
 import TaskModal from './TaskCreateModal';
-import myStyles from '../style';
-
-const styles = StyleSheet.create(myStyles.myStyles);
+import TaskDB from '../Models/TaskDB';
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
       title: {
-        title: "Hello"
-      },
-      leftButton: {
-        title: "LEFT",
-        handler: this.onClickLeftButton
+        title: "Task List"
       },
       rightButton: {
         title: "+",
@@ -29,16 +21,11 @@ module.exports = React.createClass({
       },
     };
   },
-  onClickLeftButton: function() {
-    alert("Left");
-  },
   onClickRightButton: function() {
     this.refs.taskModal._setModalVisible(true);
   },
   create(title, content) {
-    this.props.db.transaction((tx) => {
-      tx.executeSql(StaticSQL.taskInsertBySql, [title, content]);
-    });
+    TaskDB.create(title, content);
 
     this.props.reload();
     this.refs.taskModal._setModalVisible(false);
@@ -48,12 +35,10 @@ module.exports = React.createClass({
       <View>
         <NavigationBar
           title={this.state.title}
-          leftButton={this.state.leftButton}
           rightButton={this.state.rightButton}
         />
         <TaskModal
           ref="taskModal"
-          db={this.props.db}
           action={this.create}
         />
       </View>

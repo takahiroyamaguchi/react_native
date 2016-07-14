@@ -2,16 +2,13 @@
 
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Modal,
   Text,
   View,
   TextInput,
 } from 'react-native';
 import Button from 'react-native-button';
-import myStyles from '../style';
-
-const styles = StyleSheet.create(myStyles.myStyles);
+import MyStyle from '../Styles/Style';
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -43,8 +40,8 @@ module.exports = React.createClass({
             visible={this.state.modalVisible}
             onRequestClose={() => { this._setModalVisible(false) }}
         >
-          <View style={styles.container}>
-            <View style={styles.innerContainer}>
+          <View style={MyStyle.container}>
+            <View style={MyStyle.innerContainer}>
               <View>
                 <Text>Title</Text>
                 <TextInput
@@ -53,7 +50,7 @@ module.exports = React.createClass({
                     autoCapitalize="none"
                     onChangeText={(title) => this.setState({title: title}) }
                     value={this.state.title}
-                    style={styles.singleLine}
+                    style={MyStyle.singleLine}
                 />
               </View>
               <View>
@@ -64,10 +61,10 @@ module.exports = React.createClass({
                     autoCapitalize="none"
                     onChangeText={(content) => this.setState({content: content})}
                     value={this.state.content}
-                    style={styles.singleLine}
+                    style={MyStyle.singleLine}
                 />
               </View>
-              <Button style={styles.submitButton} onPress={() => this.props.action(this.state.title, this.state.content)}>
+              <Button style={MyStyle.submitButton} onPress={() => this.props.action(this.state.title, this.state.content)}>
                 登録
               </Button>
               <Button style={this.modalButton} onPress={() => this._setModalVisible(false)}>

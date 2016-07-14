@@ -2,18 +2,19 @@
 
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import SQLite from 'react-native-sqlite-storage';
-import TaskDB from '../Models/TaskDB';
+import TopNavigationBar from './TopNavigationBar';
+import TaskList from './TaskList';
+import MyStyle from '../Styles/Style';
 
 module.exports = React.createClass({
   reload() {
-    this.refs.taskListBox.loadTaskList();
+    this.refs.taskList.loadTaskList();
   },
   render() {
-    console.log(TaskDB.selectAll(function(datas) { console.log(datas); } ));
-
     return (
       <View style={{flex: 1}}>
+        <TopNavigationBar reload={this.reload}/>
+        <TaskList ref="taskList"/>
       </View>
     );
   }
